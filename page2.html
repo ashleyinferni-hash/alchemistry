@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Alchemical Study</title>
+    <!-- We are using Google Fonts to achieve the antique, ceremonial look -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
+
+        /* --- GLOBAL STYLES (Alchemical Parchment Theme) --- */
+        body {
+            /* Background: Dark, earthy, and textured */
+            font-family: 'Old Standard TT', serif;
+            background-color: #3e2723; /* Very dark brown/sepia */
+            color: #f5e6cc; /* Off-white, parchment-like text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            /* Container: Simulating a piece of aged parchment */
+            background-color: #fff8e1; /* Pale yellow/cream */
+            color: #4e342e; /* Dark brown text for contrast */
+            padding: 40px 60px;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(100, 80, 50, 0.3);
+            text-align: center;
+            max-width: 750px;
+            width: 100%;
+            border: 3px solid #795548;
+        }
+
+        h1 {
+            /* Heading: Strong, regal, and metallic */
+            font-family: 'Cinzel', serif;
+            color: #c0b283; /* Gold/Bronze color */
+            text-shadow: 1px 1px 2px #4e342e;
+            margin-bottom: 15px;
+            font-size: 2.2em;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #b79c72;
+            padding-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        /* --- NAVIGATION STYLES --- */
+        .nav-bar {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #c0b283;
+        }
+
+        .nav-button {
+            background-color: #795548; /* Darker wood/metal */
+            color: #fff8e1;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            font-family: 'Cinzel', serif;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .nav-button:hover {
+            background-color: #a1887f; /* Aged Copper/Bronze */
+        }
+        
+        .nav-button.active {
+            background-color: #b79c72;
+            color: #4e342e;
+            font-weight: bold;
+        }
+
+        /* --- SELECTOR VIEW STYLES --- */
+        #selectButton {
+            background-color: #a1887f; /* Aged Copper/Bronze */
+            color: #4e342e;
+            border: 2px solid #795548;
+            padding: 15px 35px;
+            font-size: 1.2em;
+            font-family: 'Cinzel', serif;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px #795548;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 15px;
+        }
+
+        #selectButton:hover {
+            background-color: #bcaaa4;
+            box-shadow: 0 2px #795548;
+            transform: translateY(2px);
+        }
+
+        #results {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px dashed #795548;
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            color: #b79c72;
+            text-transform: uppercase;
+            font-size: 1.5em;
+        }
+
+        .power-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .power-list li {
+            background-color: #fcefdc;
+            color: #4e342e;
+            margin: 12px auto;
+            padding: 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.1em;
+            width: 80%;
+            border-left: 8px solid #c0b283;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        
+        /* --- LEXICON VIEW STYLES --- */
+        .lexicon-entry {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .lexicon-entry h3 {
+            font-family: 'Cinzel', serif;
+            color: #795548;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+            border-bottom: 1px dotted #a1887f;
+            padding-bottom: 3px;
+        }
+
+        .lexicon-entry p {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            padding-left: 10px;
+            color: #4e342e;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚗️ The Alchemical Study</h1>
+        
+        <!-- Navigation Bar to switch views -->
+        <div class="nav-bar">
+            <button class="nav-button active" onclick="showView('selector-view')">Principle Selector</button>
+            <button class="nav-button" onclick="showView('lexicon-view')">Alchemical Lexicon</button>
+        </div>
+
+        <!-- --- VIEW 1: PRINCIPLE SELECTOR --- -->
+        <div id="selector-view" class="view">
+            <p>Consult the ancient wisdom! Click the button to randomly draw **three** unique Alchemical Principles from the vast corpus of the Magnum Opus.</p>
+            <button id="selectButton">Formulate Tria Prima</button>
+            <div id="results">
+                <!-- Results will appear here -->
+            </div>
+        </div>
+
+        <!-- --- VIEW 2: ALCHEMICAL LEXICON --- -->
+        <div id="lexicon-view" class="view" style="display: none;">
+            <h2>Key Concepts of the Great Work</h2>
+            <p>A collection of essential terms, vessels, and processes fundamental to the Art of Transmutation.</p>
+            
+            <div class="lexicon-entry">
+                <h3>The Philosopher's Stone</h3>
+                <p>The legendary substance said to be capable of turning base metals into gold (chrysopoeia) and of being a universal panacea (elixir of life), granting immortality. It represents perfection and enlightenment.</p>
+            </div>
+            
+            <div class="lexicon-entry">
+                <h3>Solve et Coagula</h3>
+                <p>Latin for "Dissolve and Coagulate" or "Separate and Join." It is the core motto of alchemy, representing the process of breaking down matter to its basic components and then re-forming it into a higher, purer state.</p>
+            </div>
+            
+            <div class="lexicon-entry">
+                <h3>Athanor</h3>
+                <p>The special furnace or heating apparatus used in alchemy. It was designed to maintain a uniform, controlled heat over long periods, necessary for the slow, continuous processes of the Great Work.</p>
+            </div>
+            
+            <div class="lexicon-entry">
+                <h3>Azoth</h3>
+                <p>The Universal Solvent or Universal Medicine. It is a symbol for the basic material that can be transmuted or transformed. It is often represented as Mercury and encompasses the totality of the life force.</p>
+            </div>
+            
+            <div class="lexicon-entry">
+                <h3>The Quintessence</h3>
+                <p>Literally the "Fifth Essence" or Aether, a substance supposedly permeating all space and composing the celestial bodies. In terrestrial alchemy, it is the refined spiritual force drawn from matter.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- JAVASCRIPT LOGIC ---
+        
+        // The expanded list of available Alchemical Principles and Concepts
+        const ALCHEMICAL_PRINCIPLES = [
+            // Tria Prima
+            "Sulphur (The Soul / Active Principle)",
+            "Mercury (The Spirit / Universal Medium)",
+            "Salt (The Body / Fixed Base)",
+            
+            // Four Classical Elements
+            "Fire (Heat and Dryness / Energy)",
+            "Water (Cold and Wetness / Fluidity)",
+            "Air (Heat and Wetness / Gas)",
+            "Earth (Cold and Dryness / Matter)",
+            
+            // Seven Metals / Planets
+            "Gold (Sun / Perfection)",
+            "Silver (Moon / Purity)",
+            "Copper (Venus / Love)",
+            "Iron (Mars / Strength)",
+            "Tin (Jupiter / Prosperity)",
+            "Lead (Saturn / Discipline)",
+            "Quicksilver (Mercury / Transmutation)",
+            
+            // Key Processes / Concepts
+            "Calcination (Burning Away Impurities)",
+            "Dissolution (Breaking Down the Form)",
+            "Separation (Purification by Division)",
+            "Conjunction (Reuniting Opposites)",
+            "Fermentation (Enlivening the Mixture)",
+            "Distillation (Sublimation and Refinement)",
+            "Coagulation (Fixing the Volatile)",
+            "Alkahest (The Universal Solvent)",
+            "Ouroboros (Eternal Cycle / Completeness)"
+        ];
+
+        const NUMBER_TO_SELECT = 3;
+
+        /**
+         * Shuffles an array in place using the Fisher-Yates algorithm.
+         */
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                // Swap array[i] and array[j]
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        /**
+         * Selects three unique principles and displays them on the page.
+         */
+        function selectAndDisplayPrinciples() {
+            // 1. Create a shallow copy of the principles array
+            let principlesCopy = [...ALCHEMICAL_PRINCIPLES]; 
+            
+            // 2. Shuffle the copied array and select the first three
+            const shuffledPowers = shuffleArray(principlesCopy);
+            const selectedPrinciples = shuffledPowers.slice(0, NUMBER_TO_SELECT);
+            
+            // 3. Get the results div from the HTML
+            const resultsDiv = document.getElementById('results');
+            
+            // 4. Build the HTML content to display the results
+            let htmlContent = '<h2>Your Formulated Tria:</h2>';
+            htmlContent += '<ul class="power-list">';
+            
+            selectedPrinciples.forEach(principle => {
+                htmlContent += `<li>${principle}</li>`;
+            });
+            
+            htmlContent += '</ul>';
+            
+            // 5. Insert the new HTML into the results div
+            resultsDiv.innerHTML = htmlContent;
+        }
+
+        /**
+         * Handles the view switching for the single-page application structure.
+         */
+        function showView(viewId) {
+            const views = document.querySelectorAll('.view');
+            const buttons = document.querySelectorAll('.nav-button');
+
+            // Hide all views
+            views.forEach(view => {
+                view.style.display = 'none';
+            });
+
+            // Deactivate all buttons
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show the selected view
+            const targetView = document.getElementById(viewId);
+            if (targetView) {
+                targetView.style.display = 'block';
+            }
+            
+            // Activate the corresponding button
+            document.querySelector(`.nav-button[onclick="showView('${viewId}')"]`).classList.add('active');
+        }
+
+        // Wait for the entire HTML document to load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial call to set the default view (Selector)
+            showView('selector-view'); 
+            
+            // Attach the main function to the button's click event
+            const button = document.getElementById('selectButton');
+            if (button) {
+                button.addEventListener('click', selectAndDisplayPrinciples);
+            }
+        });
+    </script>
+</body>
+</html>
