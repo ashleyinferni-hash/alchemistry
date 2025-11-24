@@ -1,0 +1,99 @@
+/* Import a thematic font (like a serif font) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+    /* Background: Dark, earthy, and textured */
+    font-family: 'Old Standard TT', serif; /* A classic, slightly antique font */
+    background-color: #3e2723; /* Very dark brown/sepia */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="#3e2723"/><circle cx="50" cy="50" r="40" fill="none" stroke="#4e342e" stroke-width="5" opacity="0.5"/></svg>'); /* Subtle texture */
+    color: #f5e6cc; /* Off-white, parchment-like text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    /* Container: Simulating a piece of aged parchment */
+    background-color: #fff8e1; /* Pale yellow/cream */
+    color: #4e342e; /* Dark brown text for contrast */
+    padding: 40px 60px;
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(100, 80, 50, 0.3); /* Shadow and inner burnish */
+    text-align: center;
+    max-width: 650px;
+    width: 90%;
+    border: 3px solid #795548; /* Border for an engraved look */
+}
+
+h1 {
+    /* Heading: Strong, regal, and metallic */
+    font-family: 'Cinzel', serif; /* A more impactful, stone-cut font */
+    color: #c0b283; /* Gold/Bronze color */
+    text-shadow: 1px 1px 2px #4e342e; /* Shadow for depth */
+    margin-bottom: 15px;
+    font-size: 2.2em;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #b79c72; /* Underline for emphasis */
+    padding-bottom: 10px;
+}
+
+p {
+    margin-bottom: 30px;
+}
+
+#selectButton {
+    /* Button: Designed to look like an engraved seal or metallic element */
+    background-color: #a1887f; /* Aged Copper/Bronze */
+    color: #4e342e;
+    border: 2px solid #795548;
+    padding: 15px 35px;
+    font-size: 1.2em;
+    font-family: 'Cinzel', serif;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px #795548; /* Pressable effect */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#selectButton:hover {
+    background-color: #bcaaa4; /* Lighter on hover */
+    box-shadow: 0 2px #795548;
+    transform: translateY(2px); /* Slight press down effect */
+}
+
+#results {
+    margin-top: 40px;
+    padding-top: 25px;
+    /* Dividing line that looks like a subtle engraving */
+    border-top: 1px dashed #795548; 
+}
+
+h2 {
+    font-family: 'Cinzel', serif;
+    color: #b79c72; /* Gold text */
+    text-transform: uppercase;
+}
+
+.power-list {
+    list-style: none;
+    padding: 0;
+}
+
+.power-list li {
+    /* Result items: Highlighted, sealed scroll look */
+    background-color: #fcefdc; /* Slightly darker parchment */
+    color: #4e342e;
+    margin: 12px auto;
+    padding: 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.1em;
+    max-width: 80%;
+    /* Subtle seal/ribbon on the side */
+    border-left: 8px solid #c0b283; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
